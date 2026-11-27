@@ -3,26 +3,52 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 dpkg-scanpackages --multiversion debs /dev/null > Packages
-# POCKET DEPICTION INTEGRATION
+# UNIVERSAL DEPICTION INTEGRATION
 python3 <<'DEPICTION'
 from pathlib import Path
+import re
 
 p = Path("Packages")
 blocks = p.read_text().strip().split("\n\n")
 base = "https://r-moments.github.io/repo/"
+result = []
 
-for i, block in enumerate(blocks):
+for block in blocks:
     lines = block.splitlines()
-    if "Package: ru.r-moments.pocket-ipad" in lines:
-        lines = [line for line in lines
-                 if not line.startswith(("Depiction:", "Icon:"))]
-        lines.append("Depiction: " + base +
-                     "depictions/ru.r-moments.pocket-ipad/index.html")
-        lines.append("Icon: " + base +
-                     "depictions/ru.r-moments.pocket-ipad/Icon.png")
-        blocks[i] = "\n".join(lines)
+    package = next(
+        (line[9:] for line in lines
+         if line.startswith("Package: ")), ""
+    )
 
-p.write_text("\n\n".join(blocks) + "\n\n")
+    if not package:
+        continue
+
+    if not re.fullmatch(r"[a-z0-9][a-z0-9.+-]+", package):
+        raise RuntimeError("Invalid Package ID: " + package)
+
+    folder = Path("depictions") / package
+
+    if (folder / "index.html").is_file():
+        lines = [line for line in lines
+                 if not line.startswith("Depiction:")]
+        lines.append(
+            "Depiction: " + base +
+            str(folder / "index.html")
+        )
+
+    if (folder / "Icon.png").is_file():
+        lines = [line for line in lines
+                 if not line.startswith("Icon:")]
+        lines.append(
+            "Icon: " + base +
+            str(folder / "Icon.png")
+        )
+
+    result.append("\n".join(lines))
+
+p.write_text(
+    "\n\n".join(result) + "\n\n" if result else ""
+)
 DEPICTION
 
 gzip -n -9 -c Packages > Packages.gz
