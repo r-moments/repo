@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pocket - iPad | r.moments</title>
+<style>
+* {-webkit-box-sizing:border-box;box-sizing:border-box}
+body {
+ margin:0;padding:16px;background:#efeff4;
+ color:#171717;font-family:Helvetica,Arial,sans-serif;
+ font-size:15px;line-height:1.55
+}
+main {display:block;max-width:900px;margin:0 auto}
+.panel {
+ background:#fff;border:1px solid #ddd;
+ border-radius:12px;padding:20px;margin-bottom:16px
+}
+.hero {text-align:center;padding:30px 16px}
+.hero img {width:100px;height:100px;border-radius:20px}
+h1 {font-size:34px;margin:8px 0 0}
+h2 {font-size:20px;margin:0 0 14px}
+p {margin:8px 0}
+.muted {color:#777}
+.controls {text-align:center;margin-bottom:16px}
+button {
+ background:#fff;color:#1675db;border:1px solid #ccc;
+ border-radius:7px;padding:10px 16px;margin:3px;
+ font-size:14px;cursor:pointer
+}
+.info {width:100%;border-collapse:collapse}
+.info td {padding:10px 3px;border-bottom:1px solid #ddd}
+.info td:last-child {text-align:right}
+.gallery {text-align:center}
+.shot {
+ display:inline-block;vertical-align:top;
+ width:30%;margin:1%;text-decoration:none;color:inherit
+}
+.shot img {
+ display:block;width:100%;height:auto;
+ border:1px solid #ccc;border-radius:8px
+}
+.shot span {display:block;font-size:12px;padding:7px 0}
+.wide {width:46%}
+a {color:#1675db}
+footer {text-align:center;color:#888;padding:16px;font-size:12px}
+.en {display:none}
+body.english .ru {display:none}
+body.english .en {display:block}
+body.english span.en {display:inline}
+body.dark {background:#151515;color:#eee}
+body.dark .panel {background:#242424;border-color:#393939}
+body.dark button {background:#292929;border-color:#444;color:#69aaff}
+body.dark .muted {color:#aaa}
+body.dark .info td {border-color:#444}
+body.dark a {color:#69aaff}
+@media(max-width:500px){
+ body {padding:10px}
+ .panel {padding:14px}
+ .shot {width:46%}
+ .wide {width:96%}
+}
+</style>
+</head>
+<body>
+<main>
+
+<div class="controls">
+<button onclick="language('ru')">Русский</button>
+<button onclick="language('en')">English</button>
+<button onclick="theme()">
+<span class="ru">Сменить тему</span>
+<span class="en">Switch theme</span>
+</button>
+</div>
+
+<div class="panel hero">
+<img src="Icon.png" alt="Pocket">
+<h1>Pocket</h1>
+<p class="ru">Карманный ридер</p>
+<p class="en">Your pocket news reader</p>
+<p class="muted">iPad Edition &middot; r.moments</p>
+<p id="version">3.76.34-3</p>
+</div>
+
+<div class="panel">
+<h2 class="ru">О приложении</h2>
+<h2 class="en">About</h2>
+
+<div class="ru">
+<p>Pocket — нативный новостной ридер,
+созданный специально для iPad 2 с iOS 6.1.3.</p>
+<p>Читайте новости любимых изданий
+в удобном интерфейсе и настраивайте
+оформление под себя.</p>
+</div>
+
+<div class="en">
+<p>Pocket is a native news reader designed
+for iPad 2 running iOS 6.1.3.</p>
+<p>Read your favourite news sources
+with a customizable reading experience.</p>
+</div>
+</div>
+
+<div class="panel">
+<h2 class="ru">Возможности</h2>
+<h2 class="en">Features</h2>
+<ul class="ru">
+<li>Семь новостных источников</li>
+<li>Нативное чтение статей с изображениями</li>
+<li>Светлая и тёмная темы</li>
+<li>Настройка шрифтов и размера текста</li>
+<li>Регулировка яркости</li>
+<li>Настраиваемые цвета акцента</li>
+<li>Управление кэшем изображений</li>
+<li>Вертикальная и альбомная ориентация</li>
+<li>Русский и английский языки</li>
+</ul>
+<ul class="en">
+<li>Seven news sources</li>
+<li>Native article reading with images</li>
+<li>Light and dark themes</li>
+<li>Custom fonts and text sizes</li>
+<li>Brightness adjustment</li>
+<li>Custom accent colours</li>
+<li>Image cache management</li>
+<li>Portrait and landscape layouts</li>
+<li>Russian and English languages</li>
+</ul>
+<p class="muted">
+Rozetked &middot; iGuides &middot; DTF &middot;
+PlayGround &middot; 4PDA &middot;
+Zone of Games &middot; Канобу
+</p>
+</div>
+
+<div class="panel">
+<h2 class="ru">Скриншоты</h2>
+<h2 class="en">Screenshots</h2>
+<div class="gallery" id="gallery"></div>
+<p class="muted ru">Нажмите на изображение для увеличения.</p>
+<p class="muted en">Tap an image to view it full size.</p>
+</div>
+
+<div class="panel">
+<h2 class="ru">История обновлений</h2>
+<h2 class="en">Version history</h2>
+<strong>3.76.34-3 / UIFIX80</strong>
+<p class="muted">27.11.2026</p>
+<p class="ru">Первая публикация Pocket
+в репозитории r.moments.</p>
+<p class="en">Initial release in the
+r.moments repository.</p>
+</div>
+
+<div class="panel">
+<h2 class="ru">Информация</h2>
+<h2 class="en">Information</h2>
+<table class="info">
+<tr><td>Developer</td><td>r.moments</td></tr>
+<tr><td>Author</td><td>r.moments</td></tr>
+<tr><td>Device</td><td>iPad 2</td></tr>
+<tr><td>Firmware</td><td>iOS 6.1.3</td></tr>
+<tr><td>CPU</td><td>ARMv7</td></tr>
+<tr><td>Version</td><td id="package-version">3.76.34-3</td></tr>
+<tr><td>Size</td><td id="package-size">34.4 MB</td></tr>
+</table>
+<p class="muted" style="font-size:11px;word-wrap:break-word">
+ru.r-moments.pocket-ipad
+</p>
+</div>
+
+<footer>
+<p><a href="../../">r.moments Repository</a></p>
+<p>&copy; 2026 r.moments</p>
+</footer>
+
+</main>
+
+<script src="../../catalog.js"></script>
+<script>
+var lang = 'ru';
+var dark = false;
+
+function refresh() {
+ document.body.className =
+  (lang === 'en' ? 'english' : '') +
+  (dark ? ' dark' : '');
+ document.documentElement.lang = lang;
+ try {
+  localStorage.setItem('pocket-page-lang',lang);
+  localStorage.setItem('pocket-page-dark',dark?'1':'0');
+ } catch(e) {}
+}
+
+function language(value) {
+ lang=value;
+ refresh();
+}
+
+function theme() {
+ dark=!dark;
+ refresh();
+}
+
+try {
+ lang=localStorage.getItem('pocket-page-lang')||'ru';
+ dark=localStorage.getItem('pocket-page-dark')==='1';
+} catch(e) {}
+
+refresh();
+
+var images=[
+ ['06','Новостная лента','News feed',false],
+ ['05','Светлая тема','Light theme',false],
+ ['04','Тёмная тема','Dark theme',false],
+ ['07','Разделы','News sources',false],
+ ['03','Настройки','Settings',false],
+ ['02','Альбомная лента','Landscape feed',true],
+ ['01','Альбомное чтение','Landscape reading',true]
+];
+
+var base='../../screenshots/ru.r-moments.pocket-ipad/';
+var html='';
+for(var i=0;i<images.length;i++){
+ var item=images[i];
+ var path=base+'Pocket-iPad-'+item[0];
+ html+='<a class="shot'+(item[3]?' wide':'')+
+ '" href="'+path+'.jpg">'+
+ '<img src="'+path+'-thumb.jpg" alt="'+item[2]+'">'+
+ '<span class="ru">'+item[1]+'</span>'+
+ '<span class="en">'+item[2]+'</span></a>';
+}
+document.getElementById('gallery').innerHTML=html;
+
+var packages=window.RM_PACKAGES||[];
+for(var j=0;j<packages.length;j++){
+ var p=packages[j];
+ if(p.Package==='ru.r-moments.pocket-ipad'){
+  document.getElementById('version').innerHTML=p.Version;
+  document.getElementById('package-version').innerHTML=p.Version;
+  document.getElementById('package-size').innerHTML=
+   (Number(p.Size)/1048576).toFixed(1)+' MiB';
+ }
+}
+</script>
+</body>
+</html>

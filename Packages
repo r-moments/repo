@@ -15,4 +15,6 @@ Section: Applications
 Description: Pocket news reader for iPad 2, iOS 6.1.3
 Author: r.moments
 Name: Pocket - iPad
+Depiction: https://r-moments.github.io/repo/depictions/ru.r-moments.pocket-ipad/index.html
+Icon: https://r-moments.github.io/repo/depictions/ru.r-moments.pocket-ipad/Icon.png
 

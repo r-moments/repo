@@ -3,6 +3,28 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 dpkg-scanpackages --multiversion debs /dev/null > Packages
+# POCKET DEPICTION INTEGRATION
+python3 <<'DEPICTION'
+from pathlib import Path
+
+p = Path("Packages")
+blocks = p.read_text().strip().split("\n\n")
+base = "https://r-moments.github.io/repo/"
+
+for i, block in enumerate(blocks):
+    lines = block.splitlines()
+    if "Package: ru.r-moments.pocket-ipad" in lines:
+        lines = [line for line in lines
+                 if not line.startswith(("Depiction:", "Icon:"))]
+        lines.append("Depiction: " + base +
+                     "depictions/ru.r-moments.pocket-ipad/index.html")
+        lines.append("Icon: " + base +
+                     "depictions/ru.r-moments.pocket-ipad/Icon.png")
+        blocks[i] = "\n".join(lines)
+
+p.write_text("\n\n".join(blocks) + "\n\n")
+DEPICTION
+
 gzip -n -9 -c Packages > Packages.gz
 bzip2 -9 -c Packages > Packages.bz2
 
