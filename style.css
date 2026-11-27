@@ -94,3 +94,26 @@ background:#fff;border-color:#ddd;
 .light button{background:#eee;color:#111;border-color:#ddd}
 .light .address input{color:#333}
 .light .toolbar,.light footer{border-color:#ddd}
+
+/* SMART CATALOG 1.1.2 */
+
+.rm-package-icon {
+    float: left;
+    width: 64px;
+    height: 64px;
+    margin: 0 14px 12px 0;
+    border-radius: 14px;
+}
+
+.package {
+    overflow: hidden;
+}
+
+.package .rm-details {
+    display: inline-block;
+    margin-right: 14px;
+}
+
+.package small {
+    display: block;
+}

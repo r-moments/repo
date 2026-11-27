@@ -105,3 +105,7 @@ print("Packages indexed:", len(packages))
 PY
 
 echo "=== Каталог успешно обновлён ==="
+
+
+# SMART CATALOG ENGINE 1.1.3
+python3 "$(dirname "$0")/smart-catalog.py"

@@ -48,39 +48,75 @@ function copyURL() {
         (lang === "ru" ? "Скопируйте выделенный адрес" : "Copy the selected address"));
 }
 
+
 function renderPackages() {
     var root = document.getElementById("packages");
     root.innerHTML = "";
-    var items = window.RM_PACKAGES || [];
 
-    if(!items.length){
+    var items = window.RM_LATEST_PACKAGES ||
+                window.RM_PACKAGES || [];
+
+    if (!items.length) {
         root.textContent = lang === "ru" ?
-            "Приложения появятся здесь после публикации." :
-            "Applications will appear here after publication.";
+            "Приложения пока отсутствуют." :
+            "No applications yet.";
         return;
     }
 
-    for(var i=0;i<items.length;i++){
+    function localURL(url) {
+        var base = "https://r-moments.github.io/repo/";
+        if (url && url.indexOf(base) === 0) {
+            return url.substring(base.length);
+        }
+        return "";
+    }
+
+    for (var i = 0; i < items.length; i++) {
         var p = items[i];
+
         var box = document.createElement("div");
         box.className = "package";
+
+        var iconURL = localURL(p.Icon);
+
+        if (iconURL) {
+            var icon = document.createElement("img");
+            icon.src = iconURL;
+            icon.className = "rm-package-icon";
+            icon.alt = "";
+            box.appendChild(icon);
+        }
 
         var name = document.createElement("strong");
         name.textContent = p.Name || p.Package;
         box.appendChild(name);
 
         var version = document.createElement("small");
-        version.textContent = p.Version + " | " + p.Architecture;
+        version.textContent =
+            p.Version + " | " + p.Architecture;
         box.appendChild(version);
 
         var desc = document.createElement("p");
         desc.textContent = p.Description || "";
         box.appendChild(desc);
 
-        var link = document.createElement("a");
-        link.href = p.Filename;
-        link.textContent = lang === "ru" ? "Скачать DEB" : "Download DEB";
-        box.appendChild(link);
+        var depiction = localURL(p.Depiction);
+
+        if (depiction) {
+            var details = document.createElement("a");
+            details.href = depiction;
+            details.className = "rm-details";
+            details.textContent = lang === "ru" ?
+                "Подробнее" : "Details";
+            box.appendChild(details);
+        }
+
+        var download = document.createElement("a");
+        download.href = p.Filename;
+        download.textContent = lang === "ru" ?
+            "Скачать DEB" : "Download DEB";
+
+        box.appendChild(download);
         root.appendChild(box);
     }
 }
