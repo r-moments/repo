@@ -6,16 +6,16 @@ Codename: legacy
 Architectures: iphoneos-arm
 Components: main
 Description: Legacy iOS Applications and Tweaks
-Date: Fri, 27 Nov 2026 01:13:12 GMT
+Date: Fri, 27 Nov 2026 01:27:53 GMT
 MD5Sum:
- d41d8cd98f00b204e9800998ecf8427e 0 Packages
- 4a4dd3598707603b3f76a2378a4504aa 20 Packages.gz
- 4059d198768f9f8dc9372dc1c54bc3c3 14 Packages.bz2
+ 853668ec63bd089506a018f0dacd026b 644 Packages
+ 70463366d3a351ae3904e59931489cde 406 Packages.gz
+ 4d8c832fc7f23e59df66ca7a14e9172d 446 Packages.bz2
 SHA1:
- da39a3ee5e6b4b0d3255bfef95601890afd80709 0 Packages
- a0fddd5458378c1bf3c10dd2f5c060d1347741ed 20 Packages.gz
- 64a543afbb5f4bf728636bdcbbe7a2ed0804adc2 14 Packages.bz2
+ b0541d8fdac4242e2234b77b584bc94ac64298be 644 Packages
+ 96838401c492f7a1d2f8e2abf9651e65e5c62917 406 Packages.gz
+ 27b151bc387114d4573ade9adefd3487fb06dee7 446 Packages.bz2
 SHA256:
- e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 Packages
- f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec 20 Packages.gz
- d3dda84eb03b9738d118eb2be78e246106900493c0ae07819ad60815134a8058 14 Packages.bz2
+ 455c5c9515e8e38cda6487edb292561100e9229d4763d3a4848a70336053408f 644 Packages
+ 1ef67cdaab0fc87009817f8ab8986bfbff0348a9f09f35404e3691e17ba922c8 406 Packages.gz
+ 279b1f063e8d30cceac9b97e8acc9792cacc082dbbc241e7372384fabfc09ac1 446 Packages.bz2
