@@ -1,0 +1,1 @@
+window.RM_PACKAGES = [];

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="r.moments">
+<meta name="description" content="Legacy iOS Applications and Tweaks">
+<title>r.moments Repository</title>
+<link rel="icon" href="CydiaIcon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+<div class="toolbar">
+<strong>r.moments</strong>
+<div class="controls">
+<button onclick="toggleLanguage()">RU / EN</button>
+<button onclick="toggleTheme()" id="theme">☀</button>
+</div>
+</div>
+
+<div class="hero">
+<img class="logo" src="Logo.png" alt="r.moments">
+<h1>r.moments</h1>
+<div class="subtitle">R E P O S I T O R Y</div>
+<p class="muted">EST. 2026</p>
+<p data-ru="Новая жизнь старых устройств."
+data-en="New life for old devices.">
+Новая жизнь старых устройств.</p>
+</div>
+
+<a class="primary"
+href="cydia://url/https://cydia.saurik.com/api/share#?source=https://r-moments.github.io/repo/"
+data-ru="+ Добавить в Cydia"
+data-en="+ Add to Cydia">+ Добавить в Cydia</a>
+
+<div class="address">
+<input id="repoURL" readonly
+value="https://r-moments.github.io/repo/">
+<button onclick="copyURL()"
+data-ru="Копировать"
+data-en="Copy">Копировать</button>
+</div>
+
+<div class="features">
+<div><strong>iPhone</strong><small>Legacy iOS</small></div>
+<div><strong>iPad</strong><small>Legacy iOS</small></div>
+<div><strong data-ru="Приложения" data-en="Apps">Приложения</strong><small>Native Apps</small></div>
+<div><strong data-ru="Твики" data-en="Tweaks">Твики</strong><small>System Tweaks</small></div>
+</div>
+
+<h2 data-ru="Наши приложения"
+data-en="Our applications">Наши приложения</h2>
+
+<div id="packages"></div>
+
+<footer>
+<p>© 2026 r.moments</p>
+<p>Designed &amp; Developed by r.moments</p>
+<p>Repository 1.0.0</p>
+</footer>
+
+</div>
+<script src="catalog.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
